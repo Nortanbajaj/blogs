@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  textarea{
+    overflow: hidden;
+    width: 100%;
+  }
+  input{
+    overflow: hidden;
+    width: 100%;
+  }
+</style>
+<div class="container mt-4">
+  <!-- Page Header -->
+  <div class="mb-4">
+    <h1 class="h3">Create a New Blog</h1>
+    <p class="text-muted">Share your thoughts with the world by creating a new blog post.</p>
+  </div>
+
+  <!-- Blog Form -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <form method="post" enctype = "multipart/form-data" > 
+        {% csrf_token %}
+        <div class="mb-3">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Save Blog</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
